@@ -1,0 +1,136 @@
+const int led1= 6;
+
+
+const int led2= 2;
+
+
+const int led3= 3;
+
+
+const int led4= 4;
+
+
+const int led5= 5;
+
+
+const int potreader= A1;
+
+ 
+
+void setup() {
+
+
+pinMode(led1, OUTPUT);
+
+
+pinMode(led2, OUTPUT);
+
+
+pinMode(led3, OUTPUT);
+
+
+pinMode(led4, OUTPUT);
+
+
+pinMode(led5, OUTPUT);
+
+
+pinMode(potreader, INPUT);
+
+
+}
+
+ 
+
+void loop() {
+
+
+int snelheidsRegelaar = analogRead(potreader);
+
+
+int snelheid = map(snelheidsRegelaar,0 ,1024, 50, 500);
+
+ 
+
+digitalWrite(led1, HIGH); 
+
+
+delay (snelheid);
+
+
+digitalWrite(led1, LOW);
+
+
+digitalWrite(led2, HIGH); 
+
+
+delay (snelheid); 
+
+
+digitalWrite(led2, LOW);
+
+
+digitalWrite(led3, HIGH);
+
+
+delay (snelheid);
+
+
+digitalWrite(led3, LOW);
+
+
+digitalWrite(led4, HIGH);
+
+
+delay (snelheid);
+
+
+digitalWrite(led4, LOW);
+
+
+digitalWrite(led5, HIGH);
+
+
+delay (snelheid);
+
+
+digitalWrite(led5, LOW);
+
+
+digitalWrite(led4, HIGH);
+
+
+delay(snelheid);
+
+
+digitalWrite(led4, LOW);
+
+
+digitalWrite(led3, HIGH);
+
+
+delay (snelheid);
+
+
+digitalWrite(led3, LOW);
+
+
+digitalWrite(led2, HIGH); 
+
+
+delay (snelheid); 
+
+
+digitalWrite(led2, LOW);
+
+
+digitalWrite(led1, HIGH); 
+
+
+delay (snelheid);
+
+
+digitalWrite(led1, LOW);
+
+
+}
