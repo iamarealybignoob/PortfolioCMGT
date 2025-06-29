@@ -1,0 +1,19 @@
+const int led= 3;
+const int toets = 2;
+void setup() 
+{
+pinMode(led, OUTPUT);
+pinMode(toets, INPUT);
+}
+void loop() 
+{
+int toetsWaarde = digitalRead(toets);
+if (toetsWaarde == HIGH) 
+{ 
+  digitalWrite(led, HIGH);
+}
+else 
+{
+digitalWrite(led, LOW);
+}
+}
