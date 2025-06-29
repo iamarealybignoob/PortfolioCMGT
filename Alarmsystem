@@ -1,0 +1,90 @@
+const int zoemer = 3;     
+
+
+const int reed = 2;        
+
+
+int zoemerWaarde = LOW;   
+
+ 
+
+unsigned long volledigeTijd = 0;  
+
+
+const long interval = 100;      
+
+ 
+
+void setup() {
+
+
+  pinMode(zoemer, OUTPUT);  
+
+
+  pinMode(reed, INPUT);     
+
+
+}
+
+ 
+
+void loop() {
+
+
+  unsigned long huidigeTijd = millis();    
+
+
+  int reedWaarde = digitalRead(reed);      
+
+
+  
+
+
+  
+
+
+  if (reedWaarde == HIGH) {
+
+
+    digitalWrite(zoemer, LOW);  
+
+
+  }
+
+ 
+
+ 
+
+
+  if (huidigeTijd - volledigeTijd >= interval) {
+
+
+    volledigeTijd = huidigeTijd;  
+
+ 
+
+ 
+
+
+    if (zoemerWaarde == LOW) {
+
+
+      zoemerWaarde = HIGH;
+
+
+    } else {
+
+
+      zoemerWaarde = LOW;
+
+
+    }
+
+
+    digitalWrite(zoemer, zoemerWaarde);
+
+
+  }
+
+
+}
