@@ -1,0 +1,53 @@
+#include <LiquidCrystal.h>LiquidCrystal lcd(0, 1, 8, 9, 10, 11);
+const int fan = 2;
+const int sensor = A0;
+const float basisTemperatuur = 22.0;
+const int knop = 5;int status ;
+
+void setup() 
+{ pinMode (2, OUTPUT);
+pinMode (0, OUTPUT);
+pinMode (1, OUTPUT);
+pinMode (8, OUTPUT);
+pinMode (9, OUTPUT);
+pinMode (10, OUTPUT);
+pinMode (11, OUTPUT);
+digitalWrite(2, LOW);
+pinMode(knop, INPUT);
+lcd.begin(16, 2);
+lcd.setCursor(0, 0);
+lcd.print("Setting up ...");delay(500);
+}
+
+void loop() {int knopWaarde = digitalRead(knop);
+int sensorwaarde = analogRead (sensor);
+float voltage = (sensorwaarde/1024.0) *5.0;
+float temperatuur = voltage * 100;
+if (knopWaarde == HIGH) 
+{
+if (status == HIGH) 
+{
+status = LOW;delay(2000);
+}
+else 
+{
+status = HIGH;delay(2000);
+}
+}
+else {}
+if (status == HIGH) {
+lcd.clear();
+lcd.setCursor(0, 0);
+lcd.print(temperatuur , 3);
+lcd.print(" C");
+if (temperatuur < basisTemperatuur) 
+{ 
+digitalWrite(fan, LOW);
+}
+else if (temperatuur > basisTemperatuur) 
+{ 
+digitalWrite(fan, HIGH);}delay(500);}else 
+{
+digitalWrite(fan, LOW);lcd.clear();lcd.print("Press To Enable");delay(500);
+}
+}
