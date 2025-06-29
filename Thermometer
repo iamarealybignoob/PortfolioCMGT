@@ -1,0 +1,159 @@
+const int rodeLed = 2; const int groeneLed = 3;
+
+
+const int blauweLed = 4;
+
+
+const int sensor = A0;
+
+
+const float basisTemperatuur = 20.0;
+
+ 
+
+void setup() { Serial.begin(9600);
+
+
+for (int pinNumber = 2; pinNumber <5; pinNumber++) { pinMode (pinNumber, OUTPUT);
+
+
+digitalWrite(pinNumber, LOW);
+
+
+}
+
+
+}
+
+ 
+
+void loop() {
+
+
+int sensorwaarde = analogRead (sensor);
+
+
+Serial.print ("Sensorwaarde: ");
+
+
+Serial.print(sensorWaarde);
+
+
+Serial.print(" | ");
+
+ 
+
+float voltage = (sensorwaarde/1024.0) *5.0; 
+
+
+Serial.print("Volt: ");
+
+
+Serial.print (voltage); 
+
+
+Serial.print(" ");
+
+ 
+
+float temperatuur voltage * 100;
+
+
+Serial.print ("graden Celcius: "); 
+
+
+Serial.println(temperatuur);
+
+ 
+
+if (temperatuur < basisTemperatuur-2) { digitalWrite(blauweLed, HIGH);
+
+
+delay (500);
+
+
+digitalWrite(blauweled, LOW);
+
+
+digitalWrite(groeneLed, LOW);
+
+
+digitalWrite (rodeLed, LOW);
+
+
+}
+
+ 
+
+else if (temperatuur >= basisTemperatuur-2 && temperatuur < basisTemperatuur) { 
+
+
+igitalWrite(blauweLed, HIGH);
+
+
+digitalWrite(groeneLed, LOW); 
+
+
+digitalWrite(rodeled, LOW);
+
+
+}
+
+
+else if (temperatuur > basisTemperatuur && temperatuur < basisTemperatuur+2) {
+
+
+}
+
+
+digitalWrite(rodeLed, LOW);
+
+
+digitalWrite(groeneLed, HIGH);
+
+
+digitalWrite(blauweled, LOW);
+
+
+else if (temperatuur > basisTemperatuur+2 && temperatuur < basisTemperatuur+4) {
+
+
+digitalWrite(rodeLed, HIGH);
+
+
+digitalWrite(groene Led, LOW);
+
+
+digitalWrite (blauwe Led, LOW);
+
+
+}
+
+
+else if (temperatuur > basisTemperatuur+4) { 
+
+
+digitalWrite(blauwe Led, LOW); 
+
+
+digitalWrite(groeneLed, LOW);
+
+
+digitalWrite(rodeLed, HIGH);
+
+
+delay (500);
+
+
+digitalWrite (rodeLed, LOW);
+
+
+}
+
+
+delay(1000);
+
+
+}
+
+
